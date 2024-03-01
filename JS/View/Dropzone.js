@@ -17,11 +17,13 @@ export default class Dropzone {
             e.preventDefault();
             dropzone.classList.remove("kanban__dropzone--active");
             const column = dropzone.closest(".kanban__column");
+            console.log(column)
             const id = Number(column.dataset.id);
             const dropzoneIncolumn = Array.from(column.querySelectorAll(".kanban__dropzone"));
             const dropzoneIndex = dropzoneIncolumn.indexOf(dropzone);
-            const itemid = Number(e.dataTransfer.getcolumn("text/plain"));
+            const itemid = Number(e.dataTransfer.getData("text/plain"));
             const dropperItemelement = document.querySelector(`[data-id="${itemid}"]`);
+            console.log(dropperItemelement)
             const insertAfter = dropzone.parentElement.classList.contains("kanban__item") ? dropzone.parentElement : dropzone;
             if (dropperItemelement.contains(dropzone)) {
                 return

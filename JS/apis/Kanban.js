@@ -39,7 +39,7 @@ class kanbanAPI {
         item.content = content.content === undefined ? item.content : content.content;
         if (content.columnId !== undefined && content.position !== undefined) {
             column.items.splice(column.items.indexOf(item), 1);
-            const target = column.find(item => item.id === content.id);
+            const target = data.find(item => item.id === content.columnId);
             if (target) {
                 target.items.splice(content.position, 0, item);
             }
